@@ -1,0 +1,102 @@
+{
+  "bookings": [
+    {
+      "id": 1001,
+      "buffetName": "southfestival",
+      "bookedOn": "2023-02-10",
+      "emailId": "abcd@gmail.com",
+      "plateCount": 4
+    },
+    {
+      "id": 1002,
+      "buffetName": "northfestival",
+      "bookedOn": "2023-04-12",
+      "emailId": "dcba@gmail.com",
+      "plateCount": 3
+    },
+    {
+      "id": 1003,
+      "buffetName": "westfestival",
+      "bookedOn": "2023-01-19",
+      "emailId": "west@gmail.com",
+      "plateCount": 6
+    },
+    {
+      "id": 1004,
+      "buffetName": "eastfestival",
+      "bookedOn": "2023-08-20",
+      "emailId": "estilo@gmail.com",
+      "plateCount": 8
+    },
+    {
+      "id": 1005,
+      "buffetName": "chinafestival",
+      "bookedOn": "2023-05-22",
+      "emailId": "chingo@gmail.com",
+      "plateCount": 6
+    },
+    {
+      "buffetName": "southfestival",
+      "bookedOn": "2023-11-22",
+      "emailId": "momo@momo.com",
+      "plateCount": "2",
+      "id": 1006
+    },
+    {
+      "buffetName": "chinesefestival",
+      "bookedOn": "2023-11-14",
+      "emailId": "chingchong@momo.com",
+      "plateCount": "10",
+      "id": 1007
+    },
+    {
+      "buffetName": "westfestival",
+      "bookedOn": "2023-11-29",
+      "emailId": "misko@mis.com",
+      "plateCount": "3",
+      "id": 1008
+    },
+    {
+      "buffetName": "eastfestival",
+      "bookedOn": "2023-11-29",
+      "emailId": "mango@mango.com",
+      "plateCount": "5",
+      "id": 1009
+    },
+    {
+      "buffetName": "chinesefestival",
+      "bookedOn": "2023-11-21",
+      "emailId": "gojo@gum.com",
+      "plateCount": "6",
+      "id": 1010
+    },
+    {
+      "buffetName": "chinesefestival",
+      "bookedOn": "2023-11-21",
+      "emailId": "gojo@gum.com",
+      "plateCount": "6",
+      "id": 1011
+    },
+    {
+      "buffetName": "eastfestival",
+      "bookedOn": "2023-11-19",
+      "emailId": "mingo@mosho.com",
+      "plateCount": "5",
+      "id": 1012
+    },
+    {
+      "buffetName": "eastfestival",
+      "bookedOn": "2023-11-24",
+      "emailId": "pidti@pidti.com",
+      "plateCount": "5",
+      "id": 1013
+    },
+    {
+      "buffetName": "northfestival",
+      "bookedOn": "2023-12-07",
+      "emailId": "misko@misko.com",
+      "plateCount": "7",
+      "id": 1014
+    }
+  ]
+}
