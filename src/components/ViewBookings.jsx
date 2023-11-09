@@ -37,7 +37,9 @@ const ViewBookings = () => {
     switch (name) {
       case "searchBooking":
         axios
-          .get(`http://localhost:8000/bookings/${searchData.bookingId}`)
+          .get(
+            `https://event-planner-mock-server.onrender.com/bookings/${searchData.bookingId}`
+          )
           .then((response) => {
             setSearchData({
               ...searchData,
@@ -59,7 +61,9 @@ const ViewBookings = () => {
       case "deleteBooking":
         // to be impleted  delete methods
         axios
-          .delete(`http://localhost:8000/bookings/${searchData.bookingId}`)
+          .delete(
+            `https://event-planner-mock-server.onrender.com/bookings/${searchData.bookingId}`
+          )
           .then((response) => {
             setSearchData({
               bookingId: "",

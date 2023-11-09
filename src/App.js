@@ -13,7 +13,9 @@ const App = () => {
       <div>
         <Navbar expand="lg" className="bg-body-tertiary">
           <Container>
-            <Navbar.Brand href="#home">Hotel Management App</Navbar.Brand>
+            <Link to="/bookBuffet">
+              <Navbar.Brand href="#home">Event Manager</Navbar.Brand>
+            </Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
@@ -27,9 +29,6 @@ const App = () => {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-
-        {/* <ViewBookings /> */}
-        {/* <UpdateBooking /> */}
       </div>
 
       <Routes>

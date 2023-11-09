@@ -29,7 +29,7 @@ const UpdateBooking = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/bookings/${id}`)
+      .get(`https://event-planner-mock-server.onrender.com/bookings/${id}`)
       .then((response) => {
         setBooking(response.data);
         console.log(response.data);
@@ -62,7 +62,7 @@ const UpdateBooking = (props) => {
     } else {
       setErrorMessage("");
       axios
-        .put(`http://localhost:8000/bookings/${id}`, newBooking)
+        .put(`https://event-planner-mock-server.onrender.com/bookings/${id}`, newBooking)
         .then((response) => {
           setSuccessMessage("Booking updated Successfully" + response.data.id);
         })

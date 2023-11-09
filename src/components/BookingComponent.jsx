@@ -90,65 +90,6 @@ const BookingComponent = () => {
       default:
         break;
     }
-    // switch (name) {
-    //   case "buffetName":
-    //     if (!validation.validateBuffet(value) || value === "") {
-    //       setFormErrors((prevFormError) => ({
-    //         ...prevFormError,
-    //         buffetNameErrors: meessages.BUFFET_NAME_ERROR,
-    //       }));
-    //     } else {
-    //       setFormErrors((prevFormError) => ({
-    //         ...prevFormError,
-    //         buffetNameErrors: "",
-    //       }));
-    //     }
-    //     break;
-    //   case "emailId":
-    //     if (!validation.validateEmail(value) || value === "") {
-    //       setFormErrors((prevFormError) => ({
-    //         ...prevFormError,
-    //         emailIdErrors: meessages.EMAILID_ERROR,
-    //       }));
-    //     } else {
-    //       setFormErrors((prevFormError) => ({
-    //         ...prevFormError,
-    //         emailIdErrors: "",
-    //       }));
-    //     }
-    //     break;
-
-    //   case "plateCount":
-    //     if (!validation.validPlateCount(value) || value === "") {
-    //       setFormErrors((prevFormError) => ({
-    //         ...prevFormError,
-    //         plateCountErrors: meessages.PLATE_COUNT_ERROR,
-    //       }));
-    //     } else {
-    //       setFormErrors((prevFormError) => ({
-    //         ...prevFormError,
-    //         plateCountErrors: "",
-    //       }));
-    //     }
-    //     break;
-
-    //   case "bookedOn":
-    //     if (!validation.validDate(value) || value === "") {
-    //       setFormErrors((prevFormError) => ({
-    //         ...prevFormError,
-    //         bookedOnErrors: meessages.BOOKEDON_ERROR,
-    //       }));
-    //     } else {
-    //       setFormErrors((prevFormError) => ({
-    //         ...prevFormError,
-    //         bookedOnErrors: "",
-    //       }));
-    //     }
-    //     break;
-
-    //   default:
-    //     break;
-    // }
 
     //check if any of errors are true to set isValid state for button disable
     setFormErrors(errors);
@@ -156,12 +97,6 @@ const BookingComponent = () => {
       setIsValid(true);
     } else setIsValid(false);
   };
-
-  // useEffect(() => {
-  //   if (Object.values(formErrors).every((formErrors) => formErrors === "")) {
-  //     setIsValid(true);
-  //   } else setIsValid(false);
-  // }, [formErrors]);
 
   //handle Submit
 
@@ -174,7 +109,10 @@ const BookingComponent = () => {
       // console.log("in else mandatory");
     } else {
       axios
-        .post(" http://localhost:8000/bookings", formData)
+        .post(
+          " https://event-planner-mock-server.onrender.com/bookings",
+          formData
+        )
         .then((response) => {
           setSuccessMessage(
             `Booking successfully created with Booking ID : ${response.data.id}`
