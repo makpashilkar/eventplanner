@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { validation } from "../validation/validation";
@@ -39,7 +39,7 @@ const BookingComponent = () => {
   //states to hold error and success message and mandatory
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorsMessage] = useState("");
-  const [mandatory, setMandatory] = useState(false);
+  const [, setMandatory] = useState(false);
 
   //   Handle change to get input data from form
   const handleChange = (e) => {
@@ -51,123 +51,128 @@ const BookingComponent = () => {
   //   handle validation function
 
   const validateField = (name, value) => {
-    // let errors = formErrors;
-
-    // switch (name) {
-    //   case "buffetName":
-    //     setFormErrors((prevFormError) => ({
-    //       ...prevFormError,
-    //       buffetNameErrors: !validation.validateBuffet(value),
-    //     }));
-
-    //     break;
-    //   case "emailId":
-    //     setFormErrors((prevFormError) => ({
-    //       ...prevFormError,
-    //       emailIdErrors: !validation.validateEmail(value),
-    //     }));
-    //     break;
-
-    //   case "plateCount":
-    //     setFormErrors((prevFormError) => ({
-    //       ...prevFormError,
-    //       plateCountErrors: !validation.validPlateCount(value),
-    //     }));
-    //     break;
-
-    //   case "bookedOn":
-    //     setFormErrors((prevFormError) => ({
-    //       ...prevFormError,
-    //       bookedOnErrors: !validation.validDate(value),
-    //     }));
-    //     break;
-
-    //   default:
-    //     break;
-    // }
+    let errors = formErrors;
 
     //setting error msg to errostate
 
     switch (name) {
       case "buffetName":
-        if (!validation.validateBuffet(value) || value === "") {
-          setFormErrors((prevFormError) => ({
-            ...prevFormError,
-            buffetNameErrors: meessages.BUFFET_NAME_ERROR,
-          }));
+        if (!validation.validateBuffet(value)) {
+          errors.buffetNameErrors = meessages.BUFFET_NAME_ERROR;
         } else {
-          setFormErrors((prevFormError) => ({
-            ...prevFormError,
-            buffetNameErrors: "",
-          }));
+          errors.buffetNameErrors = "";
         }
         break;
       case "emailId":
-        if (!validation.validateEmail(value) || value === "") {
-          setFormErrors((prevFormError) => ({
-            ...prevFormError,
-            emailIdErrors: meessages.EMAILID_ERROR,
-          }));
+        if (!validation.validateEmail(value)) {
+          errors.emailIdErrors = meessages.EMAILID_ERROR;
         } else {
-          setFormErrors((prevFormError) => ({
-            ...prevFormError,
-            emailIdErrors: "",
-          }));
+          errors.emailIdErrors = "";
         }
         break;
 
       case "plateCount":
-        if (!validation.validPlateCount(value) || value === "") {
-          setFormErrors((prevFormError) => ({
-            ...prevFormError,
-            plateCountErrors: meessages.PLATE_COUNT_ERROR,
-          }));
+        if (!validation.validPlateCount(value)) {
+          errors.plateCountErrors = meessages.PLATE_COUNT_ERROR;
         } else {
-          setFormErrors((prevFormError) => ({
-            ...prevFormError,
-            plateCountErrors: "",
-          }));
+          errors.plateCountErrors = "";
         }
         break;
 
       case "bookedOn":
-        if (!validation.validDate(value) || value === "") {
-          setFormErrors((prevFormError) => ({
-            ...prevFormError,
-            bookedOnErrors: meessages.BOOKEDON_ERROR,
-          }));
+        if (!validation.validDate(value)) {
+          errors.bookedOnErrors = meessages.BOOKEDON_ERROR;
         } else {
-          setFormErrors((prevFormError) => ({
-            ...prevFormError,
-            bookedOnErrors: "",
-          }));
+          errors.bookedOnErrors = "";
         }
         break;
 
       default:
         break;
     }
+    // switch (name) {
+    //   case "buffetName":
+    //     if (!validation.validateBuffet(value) || value === "") {
+    //       setFormErrors((prevFormError) => ({
+    //         ...prevFormError,
+    //         buffetNameErrors: meessages.BUFFET_NAME_ERROR,
+    //       }));
+    //     } else {
+    //       setFormErrors((prevFormError) => ({
+    //         ...prevFormError,
+    //         buffetNameErrors: "",
+    //       }));
+    //     }
+    //     break;
+    //   case "emailId":
+    //     if (!validation.validateEmail(value) || value === "") {
+    //       setFormErrors((prevFormError) => ({
+    //         ...prevFormError,
+    //         emailIdErrors: meessages.EMAILID_ERROR,
+    //       }));
+    //     } else {
+    //       setFormErrors((prevFormError) => ({
+    //         ...prevFormError,
+    //         emailIdErrors: "",
+    //       }));
+    //     }
+    //     break;
+
+    //   case "plateCount":
+    //     if (!validation.validPlateCount(value) || value === "") {
+    //       setFormErrors((prevFormError) => ({
+    //         ...prevFormError,
+    //         plateCountErrors: meessages.PLATE_COUNT_ERROR,
+    //       }));
+    //     } else {
+    //       setFormErrors((prevFormError) => ({
+    //         ...prevFormError,
+    //         plateCountErrors: "",
+    //       }));
+    //     }
+    //     break;
+
+    //   case "bookedOn":
+    //     if (!validation.validDate(value) || value === "") {
+    //       setFormErrors((prevFormError) => ({
+    //         ...prevFormError,
+    //         bookedOnErrors: meessages.BOOKEDON_ERROR,
+    //       }));
+    //     } else {
+    //       setFormErrors((prevFormError) => ({
+    //         ...prevFormError,
+    //         bookedOnErrors: "",
+    //       }));
+    //     }
+    //     break;
+
+    //   default:
+    //     break;
+    // }
 
     //check if any of errors are true to set isValid state for button disable
-  };
-
-  useEffect(() => {
+    setFormErrors(errors);
     if (Object.values(formErrors).every((formErrors) => formErrors === "")) {
       setIsValid(true);
     } else setIsValid(false);
-  }, [formErrors]);
+  };
+
+  // useEffect(() => {
+  //   if (Object.values(formErrors).every((formErrors) => formErrors === "")) {
+  //     setIsValid(true);
+  //   } else setIsValid(false);
+  // }, [formErrors]);
 
   //handle Submit
 
   const handleSubmit = (e) => {
     console.log("submit clicked");
     e.preventDefault();
-    if (
-      formData.bookedOn &&
-      formData.buffetName &&
-      formData.emailId &&
-      formData.plateCount
-    ) {
+    if (Object.values(formData).some((val) => val === "")) {
+      setMandatory(true);
+      setErrorsMessage(meessages.MANDATORY);
+      // console.log("in else mandatory");
+    } else {
       axios
         .post(" http://localhost:8000/bookings", formData)
         .then((response) => {
@@ -186,10 +191,6 @@ const BookingComponent = () => {
           setErrorsMessage(meessages.ERROR);
           console.log(error);
         });
-    } else {
-      setMandatory(true);
-      setErrorsMessage(meessages.MANDATORY);
-      console.log("in else mandatory");
     }
   };
 
@@ -283,7 +284,7 @@ const BookingComponent = () => {
           )}
           {errorMessage && (
             <span>
-              <Alert variant="success">{errorMessage}</Alert>
+              <Alert variant="danger">{errorMessage}</Alert>
             </span>
           )}
         </Form>
